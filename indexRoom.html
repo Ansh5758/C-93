@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Screenshot 2022-06-19 at 7.02.53 PM.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Lobster&family=Pacifico&family=Ramaraja&display=swap"
+        rel="stylesheet">
+    <title>WebChat</title>
+    <style>
+        h1,
+        h2 {
+            display: inline-block;
+        }
+
+        #abc {
+            position: relative;
+            top: 7.5px;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        #abc,
+        .logo {
+            display: inline-block;
+        }
+
+        body {
+            background-color: rgb(209, 149, 255);
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Dosis', sans-serif;
+            text-align: center;
+        }
+
+        .default {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 17px;
+            background-color: rgb(209, 149, 255);
+            border: 1px solid rgb(209, 149, 255);
+            border-radius: 3px;
+            float: none;
+        }
+
+        .default:active {
+            background-color: rgb(221, 176, 255);
+        }
+
+        #username {
+            color: rgb(209, 149, 255);
+            background-color: rgba(255, 255, 255, 0.0);
+            float: none;
+            font-size: 17px;
+            padding: 3px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #loginDiv {
+            color: rgb(209, 149, 255);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            float: none;
+            justify-content: center;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        ::placeholder {
+            color: rgb(209, 149, 255);
+        }
+
+        h4,
+        .default,
+        button {
+            margin: 10px;
+        }
+
+        #groupHTML {
+            float: none;
+            color: rgb(209, 149, 255);
+            padding: 2px;
+        }
+        #groupSpan{
+            font-size: 25px;
+        }
+        span {
+            font-weight: 900;
+            font-size: 27.5px;
+        }
+
+        .logo {
+            position: relative;
+            height: 50px;
+            width: 50px;
+            margin: 0px 5px;
+            font-size: 37.5px;
+            color: rgb(209, 149, 255);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px rgba(20, 20, 20, 0.75);
+        }
+
+        .glyphicon-log-out {
+            float: right;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(209, 149, 255);
+            border-radius: 10px;
+            margin: 5px;
+            padding: 5px;
+            box-shadow: 0px 0px 7.5px rgba(20, 20, 20, 0.9);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="glyphicon glyphicon-log-out" onclick="logout()"></h2><br><br><br>
+    <center>
+        <div id="abc">
+            <h1>WebChat&nbsp;</h1>
+        </div>
+        <div class="logo">W</div>
+        <h4><u>Adapt To The Future...</u></h4>
+        <br>
+        <div id="loginDiv" class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
+            <h4>Kindly type the name of the group here:</h4><input
+                class="default col-lg-10 col-md-10 col-sm-10 col-xs-11" type="text" placeholder="Type here..."
+                id="username" class="form-control"><button onclick="login()"
+                class="default col-lg-6 col-md-6 col-sm-8 col-xs-9">Create</button>
+        </div>
+        <br>
+        <div id="groupHTML" class="col-lg-7 col-md-8 col-sm-10 col-xs-11"><div id="groupSpan"></div>
+            <div id="rooms"></div>
+        </div>
+    </center>
+
+    <script>
+        userName = localStorage.getItem('User Name');
+        document.title = 'WebChat - ' + userName;
+        document.getElementById('groupSpan').innerHTML = 'Groups - <u>' + userName + '</u>';
+        document.getElementById('groupHTML').style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        document.getElementById('groupHTML').style.borderRadius = '7.5px';
+        function login() {
+            room = document.getElementById('username').value;
+            if (room == '') {
+                alert('Kindly type the room name.');
+            }
+        }
+        function logout() {
+            window.location = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
